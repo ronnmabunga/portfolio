@@ -135,3 +135,6 @@ body.dark-mode {
 }
 /* Contact Section */
 /* Footer */
+footer.dark-mode {
+    background-color: #343a40;
+}
