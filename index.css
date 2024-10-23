@@ -1,8 +1,75 @@
-:root {
-    --primary-gradient: linear-gradient(rgb(0, 47, 255), rgba(142, 229, 255, 0.582));
-    --secondary-gradient: linear-gradient(rgba(168, 255, 175, 0.74), rgb(217, 255, 0));
+[data-bs-theme="light"] {
+    --primary-gradient: linear-gradient(rgb(36, 121, 29, 0.582), rgba(134, 27, 255));
+    --secondary-gradient: linear-gradient(rgba(125, 142, 214), rgb(255, 214, 32));
+
+    --bs-body-bg: rgba(187, 197, 190);
+    --bs-body-bg-rgb: 187, 197, 190;
+    --bs-primary: rgb(192, 178, 151);
+    --bs-primary-rgb: 192, 178, 151;
+    --bs-secondary: rgb(178, 161, 187);
+    --bs-secondary-rgb: 178, 161, 187;
+    --bs-dark: rgb(140, 138, 172);
+    --bs-dark-rgb: 140, 138, 172;
+    --bs-light: rgb(226, 226, 226);
+    --bs-light-rgb: 226, 226, 226;
+
+    --bs-body-color: rgb(41, 49, 45);
+    --bs-body-color-rgb: 22, 24, 23;
+    --bs-secondary-color: rgb(41, 30, 9);
+    --bs-secondary-color-rgb: 41, 30, 9;
+    --bs-link-color: rgb(18, 24, 18);
+    --bs-link-color-rgb: 18, 24, 18;
+    --bs-link-decoration: underline;
+    --bs-link-hover-color: rgb(74, 88, 75);
+    --bs-link-hover-color-rgb: 74, 88, 75;
+    --bs-highlight-color: rgb(63, 70, 63);
+    --bs-highlight-color-rgb: 63, 70, 63;
+    --bs-emphasis-color: rgb(19, 19, 26);
+    --bs-emphasis-color-rgb: 19, 19, 26;
+    --bs-heading-color: rgb(14, 27, 15);
+    --bs-heading-color-rgb: 14, 27, 15;
 }
-body {
+[data-bs-theme="dark"] {
+    --primary-gradient: linear-gradient(rgb(0, 47, 255), rgba(142, 229, 255, 0.582));
+    --secondary-gradient: linear-gradient(rgba(168, 255, 175), rgb(217, 255, 0));
+
+    --bs-body-bg: rgb(51, 62, 70);
+    --bs-body-bg-rgb: 51, 62, 70;
+    --bs-primary: rgb(11, 14, 78);
+    --bs-primary-rgb: 11, 14, 78;
+    --bs-secondary: rgb(86, 72, 90);
+    --bs-secondary-rgb: 86, 72, 90;
+    --bs-dark: rgb(2, 0, 31);
+    --bs-dark-rgb: 2, 0, 31;
+    --bs-light: rgb(48, 46, 95);
+    --bs-light-rgb: 48, 46, 95;
+
+    --bs-body-color: rgb(177, 187, 180);
+    --bs-body-color-rgb: 177, 187, 180;
+    --bs-secondary-color: rgb(182, 168, 141);
+    --bs-secondary-color-rgb: 182, 168, 141;
+    --bs-link-color: rgb(216, 212, 193);
+    --bs-link-color-rgb: 216, 212, 193;
+    --bs-link-decoration: underline;
+    --bs-link-hover-color: rgb(241, 238, 221);
+    --bs-link-hover-color-rgb: 241, 238, 221;
+    --bs-highlight-color: rgb(17, 88, 21);
+    --bs-highlight-color-rgb: 17, 88, 21;
+    --bs-emphasis-color: rgb(207, 231, 209);
+    --bs-emphasis-color-rgb: 207, 231, 209;
+    --bs-heading-color: rgb(219, 209, 195);
+    --bs-heading-color-rgb: 219, 209, 195;
+}
+.btn-primary {
+    color: var(--bs-link-color) !important;
+    --bs-btn-bg: var(--bs-light) !important;
+    --bs-btn-border-color: var(--bs-light) !important;
+    --bs-btn-hover-bg: var(--bs-dark) !important;
+    --bs-btn-hover-border-color: var(--bs-dark) !important;
+    --bs-btn-active-bg: var(--bs-light) !important;
+    --bs-btn-active-border-color: var(--bs-link-color) !important;
+    --bs-btn-disabled-bg: var(--bs-link-color) !important;
+    --bs-btn-disabled-border-color: var(--bs-light) !important;
 }
 /* Navbar */
 /* Landing Section */
@@ -44,10 +111,10 @@ body {
     background: var(--primary-gradient);
     z-index: -1;
 }
+
 /* Tech Stack Section */
 .tech-stack-links {
     transition: transform 0.2s;
-    color: #343a40;
     text-decoration: none;
 }
 .tech-stack-links:hover {
@@ -60,6 +127,7 @@ body {
 .tech-stack-item:hover {
     transform: scale(1.05);
 }
+
 /* Projects Section */
 .card {
     transition: transform 0.2s;
@@ -76,12 +144,9 @@ body {
 .card:hover {
     transform: scale(1.05);
 }
+
 /* Contact Section */
-#contact {
-    color: #343a40;
-}
 .btn-social-icon {
-    color: #343a40;
     font-size: 24px;
 }
 .btn-social-icon:hover {
@@ -89,7 +154,6 @@ body {
 }
 .btn-social-contact {
     transition: transform 0.2s;
-    color: #343a40;
     text-decoration: none;
 }
 .btn-social-contact:hover {
@@ -97,7 +161,6 @@ body {
     text-decoration: underline;
 }
 .btn-social-contact-link {
-    color: #343a40;
     text-decoration: none;
 }
 .btn-social-contact-link:hover {
@@ -106,35 +169,3 @@ body {
 }
 
 /* Footer */
-footer {
-    color: #343a40;
-}
-
-/* Dark Mode Stylings */
-body.dark-mode {
-    background-color: #212529;
-    color: #f8f9fa;
-}
-/* Navbar */
-.navbar.dark-mode {
-    background-color: #343a40;
-}
-.btn-outline-secondary.dark-mode {
-    color: #f8f9fa;
-    border-color: #f8f9fa;
-}
-/* Tech Stack Section */
-/* Projects Section */
-.card.dark-mode {
-    background-color: #495057;
-    border-color: #6c757d;
-}
-.card.dark-mode .card-title,
-.card.dark-mode .card-text {
-    color: #f8f9fa;
-}
-/* Contact Section */
-/* Footer */
-footer.dark-mode {
-    background-color: #343a40;
-}

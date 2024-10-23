@@ -1,6 +1,6 @@
 const htmlElement = document.documentElement;
 
-// Function that applies bootstrap-defined theming property onto the html element
+// Function that applies bootstrap-defined theming property "data-bs-theme" onto the html element
 function applyTheme(theme) {
     htmlElement.setAttribute("data-bs-theme", theme);
     localStorage.setItem("theme", theme);
