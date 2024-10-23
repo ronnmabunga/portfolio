@@ -45,6 +45,21 @@ body {
     z-index: -1;
 }
 /* Tech Stack Section */
+.tech-stack-links {
+    transition: transform 0.2s;
+    color: #343a40;
+    text-decoration: none;
+}
+.tech-stack-links:hover {
+    transform: scale(1.05);
+    text-decoration: underline;
+}
+.tech-stack-item {
+    transition: transform 0.2s;
+}
+.tech-stack-item:hover {
+    transform: scale(1.05);
+}
 /* Projects Section */
 /* Contact Section */
 /* Footer */
