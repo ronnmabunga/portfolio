@@ -1,9 +1,49 @@
 :root {
+    --primary-gradient: linear-gradient(rgb(0, 47, 255), rgba(142, 229, 255, 0.582));
+    --secondary-gradient: linear-gradient(rgba(168, 255, 175, 0.74), rgb(217, 255, 0));
 }
 body {
 }
 /* Navbar */
 /* Landing Section */
+.profile-photo {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+}
+.text-primary-gradient {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.text-secondary-gradient {
+    background: var(--secondary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.border-gradient {
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+    padding: 5px;
+    background: var(--primary-gradient);
+}
+.border-gradient::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    border: 10px solid transparent;
+    background: var(--primary-gradient);
+    z-index: -1;
+}
 /* Tech Stack Section */
 /* Projects Section */
 /* Contact Section */
