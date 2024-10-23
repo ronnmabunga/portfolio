@@ -77,4 +77,61 @@ body {
     transform: scale(1.05);
 }
 /* Contact Section */
+#contact {
+    color: #343a40;
+}
+.btn-social-icon {
+    color: #343a40;
+    font-size: 24px;
+}
+.btn-social-icon:hover {
+    color: #adb5bd;
+}
+.btn-social-contact {
+    transition: transform 0.2s;
+    color: #343a40;
+    text-decoration: none;
+}
+.btn-social-contact:hover {
+    transform: scale(1.05);
+    text-decoration: underline;
+}
+.btn-social-contact-link {
+    color: #343a40;
+    text-decoration: none;
+}
+.btn-social-contact-link:hover {
+    transform: scale(1.05);
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    color: #343a40;
+}
+
+/* Dark Mode Stylings */
+body.dark-mode {
+    background-color: #212529;
+    color: #f8f9fa;
+}
+/* Navbar */
+.navbar.dark-mode {
+    background-color: #343a40;
+}
+.btn-outline-secondary.dark-mode {
+    color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+/* Tech Stack Section */
+/* Projects Section */
+.card.dark-mode {
+    background-color: #495057;
+    border-color: #6c757d;
+}
+.card.dark-mode .card-title,
+.card.dark-mode .card-text {
+    color: #f8f9fa;
+}
+/* Contact Section */
 /* Footer */
