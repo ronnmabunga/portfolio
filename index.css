@@ -84,6 +84,12 @@ h6 {
     --bs-btn-disabled-bg: var(--bs-link-color) !important;
     --bs-btn-disabled-border-color: var(--bs-light) !important;
 }
+.section-container {
+    min-height: 100vh;
+}
+.section-container-50 {
+    min-height: 50vh;
+}
 /* Navbar */
 .navbar-brand {
     font-family: "Tomorrow";
