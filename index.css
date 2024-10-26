@@ -1,3 +1,14 @@
+* {
+    font-family: "Manrope";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Nunito Sans";
+}
 [data-bs-theme="light"] {
     --primary-gradient: linear-gradient(rgb(36, 121, 29, 0.582), rgba(134, 27, 255));
     --secondary-gradient: linear-gradient(rgba(125, 142, 214), rgb(255, 214, 32));
@@ -72,6 +83,9 @@
     --bs-btn-disabled-border-color: var(--bs-light) !important;
 }
 /* Navbar */
+.navbar-brand {
+    font-family: "Tomorrow";
+}
 /* Landing Section */
 .profile-photo {
     width: 100%;
