@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ronn Mabunga | Messages</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="./index.css" />
+    </head>
+
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar bg-secondary navbar-expand-lg sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="./index.html">Ronn Mabunga</a>
+                <div class="d-lg-none ms-auto">
+                    <a href="https://linkedin.com/in/ronnmabunga" class="btn btn-social-icon" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/ronnmabunga" class="btn btn-social-icon" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:ronnmabunga@gmail.com" class="btn btn-social-icon">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link" href="./index.html#landing">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./index.html#tech-stack">Tech Stack</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./index.html#projects">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./index.html#contact">Contact</a></li>
+                    </ul>
+                    <div>
+                        <a href="https://linkedin.com/in/ronnmabunga" class="d-none d-lg-inline-block btn btn-social-icon mx-2" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/ronnmabunga" class="d-none d-lg-inline-block btn btn-social-icon mx-2" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:ronnmabunga@gmail.com" class="d-none d-lg-inline-block btn btn-social-icon mx-2">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a id="theme-toggle">
+                            <button id="theme-toggle-button" class="d-none d-lg-inline-block btn btn-dark m-0"><i id="theme-icon-1" class="fas fa-moon"></i></button>
+                            <button class="p-0 d-lg-none btn m-0">Toggle Color Mode <i id="theme-icon-2" class="fas fa-moon"></i></button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Contact Section -->
+        <section id="contact" class="bg-light py-5">
+            <div class="container section-container">
+                <div class="row justify-content-center">
+                    <div class="container overlay-container col-md-6 col-11 py-5 px-1 section-container-50">
+                        <div class="container-fluid col-10">
+                            <h2 class="mb-4 text-center">Your Messages</h2>
+                            <div id="messagesContainer">No messages found!</div>
+                        </div>
+                    </div>
+                    <a id="contact-form-button" href="#contact" class="d-none">Test API</a>
+                    <div class="col-md-6 col-12 py-5">
+                        <div class="container-fluid col-10">
+                            <h2 class="mb-4 text-center">Contact Us</h2>
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter name" required />
+                                    <div class="invalid-tooltip">Please enter your name.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email" required />
+                                    <div class="invalid-tooltip">Please enter a valid email address.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" rows="4" placeholder="Write your message" required></textarea>
+                                    <div class="invalid-tooltip">Please write a message.</div>
+                                </div>
+                                <button id="contact-form-submit-button" type="submit" class="btn btn-dark w-100">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-secondary text-center py-4">
+            <p>&copy; 2024 Ronn Mabunga. All Rights Reserved.</p>
+        </footer>
+
+        <div id="toastContainer" class="position-fixed bottom-0 end-0 p-3" style="z-index: 99"></div>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+        <script src="index.js"></script>
+        <script src="messages.js"></script>
+    </body>
+</html>
