@@ -20,6 +20,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item"><a class="nav-link" href="#landing">Home</a></li>
@@ -27,7 +28,10 @@
                         <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     </ul>
-                    <button id="theme-toggle" class="btn btn-dark m-0">Toggle Theme</button>
+                        <a id="theme-toggle">
+                            <button id="theme-toggle-button" class="d-none d-lg-inline-block btn btn-dark m-0"><i id="theme-icon-1" class="fas fa-moon"></i></button>
+                            <button class="p-0 d-lg-none btn m-0">Toggle Color Mode <i id="theme-icon-2" class="fas fa-moon"></i></button>
+                        </a>
                 </div>
             </div>
         </nav>

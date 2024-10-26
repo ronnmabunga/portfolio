@@ -1,7 +1,26 @@
 const htmlElement = document.documentElement;
-
+const themeIcon1 = document.getElementById("theme-icon-1");
+const themeIcon2 = document.getElementById("theme-icon-2");
+const themeToggleButton = document.getElementById("theme-toggle-button");
 // Function that applies bootstrap-defined theming property "data-bs-theme" onto the html element
 function applyTheme(theme) {
+    if (theme === "light") {
+        themeIcon1.classList.remove("fa-sun");
+        themeIcon1.classList.add("fa-moon");
+        themeIcon2.classList.remove("fa-sun");
+        themeIcon2.classList.add("fa-moon");
+        themeToggleButton.classList.remove("btn-primary");
+        themeToggleButton.classList.add("btn-light");
+    } else {
+        themeIcon1.classList.remove("fa-moon");
+        themeIcon1.classList.add("fa-sun");
+        themeIcon2.classList.remove("fa-moon");
+        themeIcon2.classList.add("fa-sun");
+        themeToggleButton.classList.remove("btn-light");
+        themeToggleButton.classList.add("btn-primary");
+    }
+    themeToggleButton.classList.remove("btn-light");
+    themeToggleButton.classList.add("btn-dark");
     htmlElement.setAttribute("data-bs-theme", theme);
     localStorage.setItem("theme", theme);
 }
