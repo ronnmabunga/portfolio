@@ -22,3 +22,23 @@ document.getElementById("theme-toggle").addEventListener("click", () => {
     const newTheme = currentTheme === "light" ? "dark" : "light";
     applyTheme(newTheme);
 });
+
+function showToast(title, message) {
+    const toastContainer = document.getElementById("toastContainer");
+    const toastId = `toast-${Date.now()}`;
+    const toastHTML = `
+        <div id="${toastId}" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true">
+            <div class="toast-header">
+                <strong class="me-auto">${title}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">${message}</div>
+        </div>
+    `;
+    toastContainer.insertAdjacentHTML("beforeend", toastHTML);
+    const newToast = new bootstrap.Toast(document.getElementById(toastId));
+    newToast.show();
+    document.getElementById(toastId).addEventListener("hidden.bs.toast", () => {
+        document.getElementById(toastId).remove();
+    });
+}
