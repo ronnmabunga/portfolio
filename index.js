@@ -42,3 +42,33 @@ function showToast(title, message) {
         document.getElementById(toastId).remove();
     });
 }
+
+document.getElementById("contactForm").addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+    try {
+        const response = await fetch("https://y528c8do2c.execute-api.ap-southeast-1.amazonaws.com/prod", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "x-api-key": "JvhkaNnDRJ3FvfB4V8loq5jfB6RIP6rS5NZX1ljO",
+            },
+            body: JSON.stringify({ name, email, message }),
+        });
+        const result = await response.json();
+        console.log(result);
+        if (response.ok) {
+            showToast("Success", "Message sent successfully!");
+        } else {
+            showToast("Error", "Error: " + result.error);
+        }
+    } catch (error) {
+        showToast("Error", "An unexpected error occurred. Please try again later.");
+    }
+});
+
+document.getElementById("contact-form-button").addEventListener("click", () => {
+    showToast("Information", "The contact form uses the Demo API.<br/>Fill in the form and submit to send a message.<br/>The file in the S3 bucket will update based on your input.");
+});

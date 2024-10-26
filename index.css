@@ -12,6 +12,7 @@ h6 {
 [data-bs-theme="light"] {
     --primary-gradient: linear-gradient(rgb(36, 121, 29, 0.582), rgba(134, 27, 255));
     --secondary-gradient: linear-gradient(rgba(125, 142, 214), rgb(255, 214, 32));
+    --tertiary-gradient: linear-gradient(rgba(162, 179, 160, 0.781), rgba(178, 150, 211, 0.781));
 
     --bs-body-bg: rgba(187, 197, 190);
     --bs-body-bg-rgb: 187, 197, 190;
@@ -43,6 +44,7 @@ h6 {
 [data-bs-theme="dark"] {
     --primary-gradient: linear-gradient(rgb(0, 47, 255), rgba(142, 229, 255, 0.582));
     --secondary-gradient: linear-gradient(rgba(168, 255, 175), rgb(217, 255, 0));
+    --tertiary-gradient: linear-gradient(rgba(50, 59, 49, 0.781), rgba(74, 62, 88, 0.781));
 
     --bs-body-bg: rgb(51, 62, 70);
     --bs-body-bg-rgb: 51, 62, 70;
@@ -181,5 +183,10 @@ h6 {
     transform: scale(1.05);
     text-decoration: underline;
 }
-
+.overlay-container {
+    background: var(--tertiary-gradient), url("./assets/contact-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+}
 /* Footer */
