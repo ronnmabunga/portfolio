@@ -79,7 +79,7 @@ document.getElementById("contactForm").addEventListener("submit", async (event) 
         const result = await response.json();
         console.log(result);
         if (response.ok) {
-            showToast("Success", "Message sent successfully!");
+            showToast("Success", `Message sent successfully! View your messages <a href="./messages.html?email=${email}">here</a>.`);
         } else {
             showToast("Error", "Error: " + result.error);
         }
