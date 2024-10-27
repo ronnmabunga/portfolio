@@ -33,3 +33,96 @@ async function displayMessages() {
 }
 
 window.onload = displayMessages;
+
+/* Reused Code from index.js */
+
+const htmlElement = document.documentElement;
+const themeIcon1 = document.getElementById("theme-icon-1");
+const themeIcon2 = document.getElementById("theme-icon-2");
+const themeToggleButton = document.getElementById("theme-toggle-button");
+// Function that applies bootstrap-defined theming property "data-bs-theme" onto the html element
+function applyTheme(theme) {
+    if (theme === "light") {
+        themeIcon1.classList.remove("fa-sun");
+        themeIcon1.classList.add("fa-moon");
+        themeIcon2.classList.remove("fa-sun");
+        themeIcon2.classList.add("fa-moon");
+        themeToggleButton.classList.remove("btn-primary");
+        themeToggleButton.classList.add("btn-light");
+    } else {
+        themeIcon1.classList.remove("fa-moon");
+        themeIcon1.classList.add("fa-sun");
+        themeIcon2.classList.remove("fa-moon");
+        themeIcon2.classList.add("fa-sun");
+        themeToggleButton.classList.remove("btn-light");
+        themeToggleButton.classList.add("btn-primary");
+    }
+    themeToggleButton.classList.remove("btn-light");
+    themeToggleButton.classList.add("btn-dark");
+    htmlElement.setAttribute("data-bs-theme", theme);
+    localStorage.setItem("theme", theme);
+}
+
+// Checks for saved theme in localStorage (from previous usage of the app)
+// If no previous configurartion, it also checks for system color mode settings
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+    applyTheme(savedTheme);
+} else {
+    const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    applyTheme(prefersDarkMode ? "dark" : "light");
+}
+
+// Event listener for a "theme-toggle" button, which calls the applyTheme function when clicked
+document.getElementById("theme-toggle").addEventListener("click", () => {
+    const currentTheme = htmlElement.getAttribute("data-bs-theme");
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+    applyTheme(newTheme);
+});
+
+function showToast(title, message) {
+    const toastContainer = document.getElementById("toastContainer");
+    const toastId = `toast-${Date.now()}`;
+    const toastHTML = `
+        <div id="${toastId}" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true">
+            <div class="toast-header">
+                <strong class="me-auto">${title}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">${message}</div>
+        </div>
+    `;
+    toastContainer.insertAdjacentHTML("beforeend", toastHTML);
+    const newToast = new bootstrap.Toast(document.getElementById(toastId));
+    newToast.show();
+    document.getElementById(toastId).addEventListener("hidden.bs.toast", () => {
+        document.getElementById(toastId).remove();
+    });
+}
+
+document.getElementById("contactForm").addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+    try {
+        const response = await fetch("https://y528c8do2c.execute-api.ap-southeast-1.amazonaws.com/prod", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "x-api-key": "JvhkaNnDRJ3FvfB4V8loq5jfB6RIP6rS5NZX1ljO",
+            },
+            body: JSON.stringify({ name, email, message }),
+        });
+        const result = await response.json();
+        console.log(result);
+        if (response.ok) {
+            showToast("Success", `Message sent successfully!`);
+            displayMessages();
+        } else {
+            showToast("Error", "Error: " + result.error);
+        }
+    } catch (error) {
+        showToast("Error", "An unexpected error occurred. Please try again later.");
+    }
+});
