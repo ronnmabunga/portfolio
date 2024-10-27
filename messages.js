@@ -27,7 +27,7 @@ async function displayMessages() {
     messages.forEach((message) => {
         const messageDiv = document.createElement("div");
         messageDiv.className = "message";
-        messageDiv.innerHTML = `<strong>Email:</strong> ${message.email} <br> <strong>Message:</strong> ${message.message}`;
+        messageDiv.innerHTML = `<div class="rounded bg-dark p-3 m-3"><strong>Name:</strong> ${message.name} <br/> <strong>Email:</strong> ${message.email} <br/> <strong>Message:<br/></strong> ${message.message}</div>`;
         container.appendChild(messageDiv);
     });
 }
