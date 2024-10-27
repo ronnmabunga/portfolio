@@ -1,6 +1,8 @@
 async function fetchMessages(email) {
     try {
-        const response = await fetch(`https://y528c8do2c.execute-api.ap-southeast-1.amazonaws.com/prod/${email}`);
+        const response = await fetch(`https://y528c8do2c.execute-api.ap-southeast-1.amazonaws.com/prod/${email}`, {
+            method: "GET",
+        });
         if (!response.ok) {
             throw new Error(JSON.stringify(response.error));
         }
@@ -20,6 +22,7 @@ async function displayMessages() {
     const container = document.getElementById("messagesContainer");
     container.innerHTML = "No messages found!";
     messages.forEach((message) => {
+        console.log(message);
         const messageDiv = document.createElement("div");
         messageDiv.className = "message";
         messageDiv.innerHTML = `<strong>Email:</strong> ${message.email} <br> <strong>Message:</strong> ${message.message}`;
